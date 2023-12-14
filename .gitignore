@@ -1,0 +1,13 @@
+### C++ ###
+# General
+.DS_Store
+
+# Exclude VSCode directories
+.vscode/
+
+# Exclude [cpp파일명].dSYM directories
+*.dSYM/
+
+# Exclude C++ executable files on macOS
+*.out
+*.app
