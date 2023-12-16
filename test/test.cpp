@@ -10,4 +10,8 @@ int main()
     string s;
     getline(cin, s);
     cout << s;
+
+    int n;
+    cin >> n;
+    cin.ignore();
 }
