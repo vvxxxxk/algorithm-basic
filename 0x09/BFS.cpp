@@ -2,8 +2,9 @@
 #include <queue>
 using namespace std;
 
+// pair에서 first, second를 줄여서 쓰기 위해서 사용
 #define X first
-#define Y second // pair에서 first, second를 줄여서 쓰기 위해서 사용
+#define Y second 
 
 // 1이 파란 칸, 0이 빨간 칸에 대응
 int board[502][502] = {{1,1,1,0,1,0,0,0,0,0},
