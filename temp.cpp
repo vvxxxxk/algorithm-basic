@@ -1,19 +1,33 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int n;
-
-void hanoi(int n, int from, int to)
+vector<string> split(string input, vector<string> delimiters)
 {
-    int other = 6 - from - to;
-    if (n == 1)
-        cout << from << " " << to << "\n";
-    else
+    vector<string> ret;
+    while(true)
     {
-        hanoi(n-1, from, other);
-        cout << from << " " << to << "\n";
-        hanoi(n-1, other, to);
-    }        
+        size_t pos = string::npos;
+        string token = "";
+        int delimiter_length = 0;
+        for (int i = 0; i < delimiters.size(); i++)
+        {
+            size_t temp_pos = input.find(delimiters[i]);
+            if (temp_pos != string::npos && (pos == string::npos || temp_pos < pos))
+            {
+                pos = temp_pos;
+                delimiter_length = delimiters[i].length();
+            }
+        }
+
+        if (pos == string::npos)
+            break;
+
+        token = input.substr(0, pos);
+        ret.push_back(token);
+        input.erase(0, pos+delimiter_length);
+    }
+    ret.push_back(input);
+    return ret;
 }
 
 int main()
@@ -22,7 +36,13 @@ int main()
     cin.tie(0);
     cout.tie(0);
 
-    cin >> n;
-    cout << (int)(pow(2, n)-1) << "\n";
-    hanoi(n, 1, 3);
+    string str = "abc,def,ghi,jkl..mno..pqr..stu-vwx-yz";
+    vector<string> delimiters = {",", "..", "-"};
+    vector<string> v = split(str, delimiters);
+
+    cout << "split 전: " << str << "\n";
+    cout << "split 후: ";
+    for (int i = 0; i < v.size(); i++)
+        cout << v[i];
+    cout << "\n";
 }
