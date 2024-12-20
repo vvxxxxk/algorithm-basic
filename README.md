@@ -1,4 +1,4 @@
-# algorithm-basic
+# algorithm
 
 <details>
 <summary> 기초 코드 작성요령 </summary>
